@@ -6,17 +6,23 @@
 * [Endpoints](#endpoints)
 
 ## Run server
-`` php bin/console server:run ``
+```bash 
+    php bin/console server:run 
+```
 
 > If you're using a VM, you may need to tell the server to bind to all IP addresses:
 >
-> `` php bin/console server:start 0.0.0.0:8000 ``
+> ```bash 
+>    php bin/console server:start 0.0.0.0:8000 
+> ```
 
 ## Unit testing
 
-``php bin/phpunit``
+```bash 
+    php bin/phpunit 
+```
 
 ## Endpoints
 
-* <b>/api/v1/info</b> - Displaying information about health status for service.
-* <b>/api/v1/parse/{docId}</b> - Parsing uploaded PDF/DOC file and return HTML content
+* **/api/v1/info** - Displaying information about health status for service.
+* **/api/v1/parse/{docId}** - Parsing uploaded PDF/DOC file and return HTML content
