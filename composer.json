@@ -7,6 +7,7 @@
         "ext-iconv": "*",
         "gufy/pdftohtml-php": "~2",
         "phpoffice/phpword": "^0.15.0",
+        "sensio/framework-extra-bundle": "^5.2",
         "symfony/console": "^3.4",
         "symfony/flex": "^1.0",
         "symfony/framework-bundle": "^3.4",
@@ -14,7 +15,8 @@
         "symfony/yaml": "^3.4"
     },
     "require-dev": {
-        "symfony/dotenv": "^3.4"
+        "symfony/dotenv": "^3.4",
+        "symfony/web-server-bundle": "^3.4"
     },
     "config": {
         "preferred-install": {
@@ -24,12 +26,12 @@
     },
     "autoload": {
         "psr-4": {
-            "App\\": "src/"
+            "PDT\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "App\\Tests\\": "tests/"
+            "PDT\\Tests\\": "tests/"
         }
     },
     "replace": {
