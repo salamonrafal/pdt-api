@@ -1,9 +1,9 @@
 # Parsing Document Tool API
 
 ## Index
-* [Run server][run-server]
-* [Unit testing][unit-testing]
-* [Endpoints][endpoints]
+* [Run server](#run-server)
+* [Unit testing](#unit-testing)
+* [Endpoints](#endpoints)
 
 ## Run server
 `` php bin/console server:run ``
