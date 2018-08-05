@@ -12,4 +12,11 @@ class InfoController
     public function display_info() {
         return new Response("<html><head><title>[PDT] Info page</title></head><body><p>Service working</p></body></html>");
     }
+
+    /**
+     * @Route("/", name = "pdt_info_index")
+     */
+    public function index_info() {
+        return new Response("<html><head><title>[PDT] Info page</title></head><body><p>Service working</p></body></html>");
+    }
 }
