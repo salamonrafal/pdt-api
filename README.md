@@ -7,7 +7,11 @@
 >
 > `` php bin/console server:start 0.0.0.0:8000 ``
 
+## Unit testing
+
+``php bin/phpunit``
 
 ## Endpoints
 
 * <b>/api/v1/info</b> - Displaying information about health status for service.
+* <b>/api/v1/parse/{docId}</b> - Parsing uploaded PDF/DOC file and return HTML content
