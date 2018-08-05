@@ -5,4 +5,5 @@
 /var/
 /vendor/
 /.idea/
+composer.phar
 ###< symfony/framework-bundle ###
