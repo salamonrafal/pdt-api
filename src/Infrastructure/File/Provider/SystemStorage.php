@@ -10,7 +10,7 @@ class SystemStorage implements IStorage
 
     public function upload($tempfile, string $target)
     {
-        if (!move_uploaded_file($tempfile, $target))
+        if (!$this->move_uploaded_file($tempfile, $target))
         {
             throw new ExceptionStorage("Problem with upload file on System Storage (Local Server)");
         }
@@ -34,5 +34,16 @@ class SystemStorage implements IStorage
     public function get()
     {
         // TODO: Implement save() method.
+    }
+
+    /**
+     * @param string $tempfile
+     * @param string $target
+     *
+     * @return mixed
+     */
+    private function move_uploaded_file(string $tempfile, string $target)
+    {
+        return move_uploaded_file($tempfile, $target);
     }
 }

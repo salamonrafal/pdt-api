@@ -1,11 +1,20 @@
 <?php
 namespace PDT\Controller;
 
+use PDT\Configuration\Services;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 class InfoController
 {
+
+    private $appConfig;
+
+    public function __construct(Services $appConfig)
+    {
+        $this->appConfig = $appConfig->getConfig();
+    }
+
     /**
      * @Route("/api/v1/info", name = "pdt_info")
      */
