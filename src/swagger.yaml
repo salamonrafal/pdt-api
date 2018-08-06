@@ -27,6 +27,22 @@ paths:
           description: Document not found
 
 
+  /api/v1/convert/:
+    post:
+      tags:
+        - Convert
+        - Upload
+
+      summary: Upload & convert document to HTML
+
+      responses:
+        '200':
+          description: Succesful convert document
+
+        '404':
+          description: Document not found
+
+
   /api/v1/upload:
 
     post:
