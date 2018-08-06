@@ -11,9 +11,9 @@ class Adapter
         $this->Storage = $StorageClient;
     }
 
-    public function uploadFile()
+    public function uploadFile($tempfile, string $target)
     {
-        $this->Storage->upload();
+        $this->Storage->upload($tempfile, $target);
     }
 
     public function saveFile()
