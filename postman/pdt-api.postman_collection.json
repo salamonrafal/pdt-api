@@ -1,0 +1,55 @@
+{
+	"info": {
+		"_postman_id": "14accfc9-4675-4ffd-a2d4-717078c2179c",
+		"name": "pdt-api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"_postman_id": "fdac300b-b970-4a3b-8968-7d40424210cd",
+			"name": "Parse document",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "b7edbfc5-bfcc-4384-b8f6-06e8fbd54471",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"",
+							"pm.test(\"Body matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"test: 123456\");",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/v1/parse/123456",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"parse",
+						"123456"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

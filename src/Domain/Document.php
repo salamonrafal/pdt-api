@@ -1,11 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: rafcio0584
- * Date: 05.08.2018
- * Time: 16:26
- */
-
 namespace PDT\Domain;
 
 
