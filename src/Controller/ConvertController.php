@@ -4,16 +4,17 @@ namespace PDT\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class ParserController
+class ConvertController
 {
 
     /**
      * @param $docId integer
      * @return Response
      *
-     * @Route("/api/v1/parse/{docId}", name = "pdt_parse_run")
+     * @Route("/api/v1/convert/{docId}", name = "pdt_convert_run")
+     * @Method({"POST"})
      */
-    public function run_parse_file(int $docId): Response
+    public function run_convert_file(int $docId): Response
     {
 
         return new Response("test: " . $docId);

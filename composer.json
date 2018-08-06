@@ -2,22 +2,22 @@
     "type": "project",
     "license": "proprietary",
     "require": {
-        "php": "^7.0.8",
+        "php": "7.1.*",
         "ext-ctype": "*",
         "ext-iconv": "*",
-        "gufy/pdftohtml-php": "~2",
-        "phpoffice/phpword": "^0.15.0",
-        "sensio/framework-extra-bundle": "^5.2",
-        "symfony/console": "^3.4",
-        "symfony/flex": "^1.0",
-        "symfony/framework-bundle": "^3.4",
-        "symfony/lts": "^3",
-        "symfony/yaml": "^3.4"
+        "gufy/pdftohtml-php": "2.0.8",
+        "phpoffice/phpword": "0.15.0",
+        "sensio/framework-extra-bundle": "5.2.0",
+        "symfony/console": "3.4.14",
+        "symfony/flex": "1.0.89",
+        "symfony/framework-bundle": "3.4.14",
+        "symfony/lts": "3",
+        "symfony/yaml": "3.4.14"
     },
     "require-dev": {
-        "symfony/dotenv": "^3.4",
-        "symfony/test-pack": "^1.0",
-        "symfony/web-server-bundle": "^3.4"
+        "symfony/dotenv": "3.4.14",
+        "symfony/test-pack": "1.0.2",
+        "symfony/web-server-bundle": "3.4.14"
     },
     "config": {
         "preferred-install": {

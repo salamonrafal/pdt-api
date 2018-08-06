@@ -7,7 +7,7 @@
 	"item": [
 		{
 			"_postman_id": "fdac300b-b970-4a3b-8968-7d40424210cd",
-			"name": "Parse document",
+			"name": "Convert document",
 			"event": [
 				{
 					"listen": "test",
@@ -32,7 +32,7 @@
 				"header": [],
 				"body": {},
 				"url": {
-					"raw": "http://127.0.0.1:8000/api/v1/parse/123456",
+					"raw": "http://127.0.0.1:8000/api/v1/convert/123456",
 					"protocol": "http",
 					"host": [
 						"127",
@@ -44,7 +44,7 @@
 					"path": [
 						"api",
 						"v1",
-						"parse",
+						"convert",
 						"123456"
 					]
 				}

@@ -1,0 +1,96 @@
+openapi: 3.0.0
+
+servers:
+  - url: http://127.0.0.1:8000/
+
+info:
+  title: Parsing Document Tool API
+  description: Parsing Document Tool API allow to parse document PDF
+  version: 0.0.10a
+
+paths:
+  /api/v1/convert/{docID}:
+    parameters:
+      - $ref: '#/components/parameters/docID'
+
+    post:
+      tags:
+        - Convert
+
+      summary: Convert document to HTML
+
+      responses:
+        '200':
+          description: Succesful convert document
+
+        '404':
+          description: Document not found
+
+
+  /api/v1/upload:
+
+    post:
+      tags:
+        - Upload
+
+      summary: Add document to storage
+
+      responses:
+        '201':
+          description: Succesful convert document
+
+        '404':
+          description: Document not found
+
+
+  /api/v1/info:
+
+    get:
+      tags:
+        - Status
+
+      summary: Show service status
+
+      responses:
+        '200':
+          description: Succesful convert document
+
+        '404':
+          description: Document not found
+
+
+  /:
+
+    get:
+      tags:
+        - Status
+
+      summary: Show service status
+
+      responses:
+        '200':
+          description: Succesful convert document
+
+        '404':
+          description: Document not found
+
+
+#
+# Schemas:
+#
+
+components:
+
+  parameters:
+
+    docID:
+      name: docID
+      in: path
+      required: true
+      description:  Document ID generated during upload file
+      schema:
+        type: integer
+      example: 1234567
+
+
+  # schemas:
