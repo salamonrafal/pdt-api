@@ -4,7 +4,9 @@
 /var/
 /vendor/
 /.idea/
+*.iml
 composer.phar
+composer.lock
 ###< symfony/framework-bundle ###
 
 ###> symfony/web-server-bundle ###
