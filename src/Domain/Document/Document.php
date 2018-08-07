@@ -1,5 +1,5 @@
 <?php
-namespace PDT\Domain;
+namespace PDT\Domain\Document;
 
 
 class Document
@@ -10,7 +10,7 @@ class Document
     private $docId;
 
     /**
-     * @var string
+     * @var DocumentType
      */
     private $docType;
 
@@ -41,17 +41,17 @@ class Document
     }
 
     /**
-     * @return string
+     * @return DocumentType
      */
-    public function getDocType(): string
+    public function getDocType(): DocumentType
     {
         return $this->docType;
     }
 
     /**
-     * @param string $docType
+     * @param DocumentType $docType
      */
-    public function setDocType(string $docType): void
+    public function setDocType(DocumentType $docType): void
     {
         $this->docType = $docType;
     }

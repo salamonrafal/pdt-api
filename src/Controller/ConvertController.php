@@ -1,23 +1,15 @@
 <?php
 namespace PDT\Controller;
 
-use PDT\Configuration\Services;
 use PDT\Infrastructure\File\Adapter;
 use PDT\Infrastructure\File\Provider\SystemStorage;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Serializer\Serializer;
-use Symfony\Component\Serializer\Encoder\JsonEncoder;
-use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 
-class ConvertController
+
+class ConvertController extends MainController
 {
-    private $appConfig;
-
-    public function __construct(Services $appConfig)
-    {
-        $this->appConfig = $appConfig->getConfig();
-    }
 
     /**
      * @param $docId integer
@@ -53,16 +45,7 @@ class ConvertController
     {
         $result = $this->uploadFileToStorage($_FILES['document']);
 
-        $encoders = array(new JsonEncoder());
-        $normalizers = array(new ObjectNormalizer());
-        $serializer = new Serializer($normalizers, $encoders);
-
-        $response = new Response();
-        $response->setContent($serializer->serialize($result, 'json'));
-        $response->headers->set('Content-Type', 'application/json');
-        $response->setStatusCode(Response::HTTP_CREATED);
-
-        return $response;
+        return $this->createRequestEnvelopJSON($result);
     }
 
 

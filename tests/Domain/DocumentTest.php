@@ -1,14 +1,8 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: rafcio0584
- * Date: 05.08.2018
- * Time: 16:36
- */
-
 namespace PDT\Tests\Domain;
 
-use PDT\Domain\Document;
+use PDT\Domain\Document\Document;
+use PDT\Domain\Document\DOCUMENTTYPE;
 use Symfony\Bundle\FrameworkBundle\Tests\TestCase;
 
 final class DocumentTest extends TestCase
@@ -26,12 +20,12 @@ final class DocumentTest extends TestCase
     {
         $document = new Document();
         $document->setDocId($docId);
-        $document->setDocType($docType);
+        $document->setDocType(DocumentType::PDF());
         $document->setDocContent($docContent);
         $document->setDocIsParsed($docIsParsed);
 
         $this->assertEquals($docId, $document->getDocId(), 'docId is not same');
-        $this->assertEquals($docType, $document->getDocType(), 'docType is not same');
+        $this->assertEquals(DocumentType::PDF(), $document->getDocType(), 'docType is not same');
         $this->assertEquals($docContent, $document->getDocContent(), 'docContent is not same');
         $this->assertEquals($docIsParsed, $document->isDocIsParsed(), 'docContent is not same');
     }
