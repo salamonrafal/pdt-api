@@ -1,2 +1,15 @@
 directories:
   documents: '/../var/uploads/'
+supported_formats:
+  -
+    mime: "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+    type: "DOCX"
+  -
+    mime: "application/msword"
+    type: "DOC"
+  -
+    mime: "application/pdf"
+    type: "PDF"
+  -
+    mime: "text/html"
+    type: "HTML"

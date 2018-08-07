@@ -2,13 +2,17 @@
 
 namespace PDT\Infrastructure\File;
 
+use PDT\Domain\Document\Document;
+
 class Adapter
 {
     private $Storage;
+    private $appConfig;
 
-    public function __construct(IStorage $StorageClient)
+    public function __construct(IStorage $StorageClient, $appConfig)
     {
         $this->Storage = $StorageClient;
+        $this->appConfig = $appConfig;
     }
 
     public function uploadFile($tempfile, string $target)
@@ -31,8 +35,16 @@ class Adapter
         $this->Storage->delete();
     }
 
-    public function getFile()
+    public function getFile(string $filename): Document
     {
-        $this->Storage->get();
+        $fileInfo = $this->Storage->getInfo($filename);
+        $document = new Document();
+
+        $document->setFilename($fileInfo['fileName']);
+        $document->setSize($fileInfo['fileSize']);
+        $document->setFormatDocument($fileInfo['fileType'], $this->appConfig['supported_formats']);
+
+
+        return $document;
     }
 }

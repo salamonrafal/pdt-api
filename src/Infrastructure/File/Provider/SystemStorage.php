@@ -8,7 +8,7 @@ use PDT\Infrastructure\File\IStorage;
 class SystemStorage implements IStorage
 {
 
-    public function upload($tempfile, string $target)
+    public function upload(string $tempfile, string $target): void
     {
         if (!$this->move_uploaded_file($tempfile, $target))
         {
@@ -16,24 +16,39 @@ class SystemStorage implements IStorage
         }
     }
 
-    public function delete()
+    public function delete(string $filename): void
     {
         // TODO: Implement delete() method.
     }
 
-    public function copy()
+    public function copy(string $filename_source, string $filename_target): void
     {
         // TODO: Implement copy() method.
     }
 
-    public function save()
+    public function save(string $filename, $content): void
     {
         // TODO: Implement save() method.
     }
 
-    public function get()
+    public function getInfo(string $filename): array
     {
-        // TODO: Implement save() method.
+        $results = array ();
+
+        $pathInfo = pathinfo($filename);
+
+        $finfo = finfo_open(FILEINFO_MIME_TYPE);
+        $file_mime_type = finfo_file($finfo, $filename);
+        finfo_close($finfo);
+
+        $results['fileType'] = $file_mime_type;
+        $results['fileSize'] = filesize($filename);
+        $results['fullPath'] = $filename;
+        $results['extension'] = $pathInfo['extension'];
+        $results['dirname'] = $pathInfo['dirname'];
+        $results['fileName'] = $pathInfo['basename'];
+
+        return $results;
     }
 
     /**
@@ -42,8 +57,13 @@ class SystemStorage implements IStorage
      *
      * @return mixed
      */
-    private function move_uploaded_file(string $tempfile, string $target)
+    private function move_uploaded_file(string $tempfile, string $target): bool
     {
         return move_uploaded_file($tempfile, $target);
+    }
+
+    private function is_file_exists($filename): bool
+    {
+        return file_exists($filename);
     }
 }

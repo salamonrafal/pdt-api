@@ -57,7 +57,7 @@ class ConvertController extends MainController
     private function uploadFileToStorage(array $file)
     {
         $LocalStorage = new SystemStorage();
-        $StorageAdapter = new Adapter($LocalStorage);
+        $StorageAdapter = new Adapter($LocalStorage, $this->appConfig);
 
         $data = array(
             'filename' => $file['name'],
@@ -67,6 +67,8 @@ class ConvertController extends MainController
         );
 
         $StorageAdapter->uploadFile($file['tmp_name'], $data['fullpath']);
+
+        $data['document'] = $document = $StorageAdapter->getFile($data['fullpath']);
 
         return $data;
     }

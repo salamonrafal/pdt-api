@@ -19,6 +19,16 @@ class ApplicationConfiguration implements ConfigurationInterface
                         ->scalarNode('documents')->end()
                     ->end()
                 ->end()
+
+                ->arrayNode('supported_formats')
+                    ->arrayPrototype()
+                        ->children()
+                        ->scalarNode('mime')->end()
+                        ->scalarNode('type')->end()
+                        ->end()
+                    ->end()
+                ->end()
+
             ->end()
         ;
 

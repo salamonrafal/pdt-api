@@ -25,6 +25,33 @@ class Document
     private $docIsParsed;
 
     /**
+     * @var string
+     */
+    private $filename;
+
+    /**
+     * @var bool
+     */
+    private $isSupported;
+
+    /**
+     * @var int
+     */
+    private $size;
+
+
+    public function __construct()
+    {
+        $this->setIsSupported(false);
+        $this->setDocType(DocumentType::NOT_SUPPORTED_FORMAT());
+        $this->setSize(0);
+        $this->setFilename('');
+        $this->setDocContent('');
+        $this->setDocId(0);
+        $this->setDocIsParsed(false);
+    }
+
+    /**
      * @return int
      */
     public function getDocId(): int
@@ -86,6 +113,96 @@ class Document
     public function setDocIsParsed(bool $docIsParsed): void
     {
         $this->docIsParsed = $docIsParsed;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isSupported(): bool
+    {
+        return $this->isSupported;
+    }
+
+    /**
+     * @param bool $isSupported
+     */
+    public function setIsSupported(bool $isSupported): void
+    {
+        $this->isSupported = $isSupported;
+    }
+
+    /**
+     * @return string
+     */
+    public function getFilename(): string
+    {
+        return $this->filename;
+    }
+
+    /**
+     * @param string $filename
+     */
+    public function setFilename(string $filename): void
+    {
+        $this->filename = $filename;
+    }
+
+    /**
+     * @return int
+     */
+    public function getSize(): int
+    {
+        return $this->size;
+    }
+
+    /**
+     * @param int $size
+     */
+    public function setSize(int $size): void
+    {
+        $this->size = $size;
+    }
+
+    /**
+     * @param $mimeType
+     * @param $supportedTypes
+     */
+    public function setFormatDocument(string $mimeType, array $supportedTypes): void
+    {
+        $fileType = "";
+
+        for($i=0; $i < count($supportedTypes); $i++)
+        {
+            if ($mimeType == $supportedTypes[$i]['mime'])
+            {
+                $fileType = $supportedTypes[$i]['type'];
+            }
+        }
+
+        switch ($fileType)
+        {
+            case 'PDF':
+                $this->setIsSupported(true);
+                $this->setDocType(DocumentType::PDF());
+                break;
+            case 'DOCX':
+                $this->setIsSupported(true);
+                $this->setDocType(DocumentType::DOCX());
+                break;
+            case 'DOC':
+                $this->setIsSupported(true);
+                $this->setDocType(DocumentType::DOC());
+                break;
+            case 'HTML':
+                $this->setIsSupported(true);
+                $this->setDocType(DocumentType::HTML());
+                break;
+            default:
+                $this->setIsSupported(false);
+                $this->setDocType(DocumentType::NOT_SUPPORTED_FORMAT());
+                break;
+        }
+
     }
 
 }
