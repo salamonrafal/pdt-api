@@ -1,5 +1,5 @@
 directories:
-  documents: '/../var/uploads/'
+  documents: '/../../var/uploads/'
 supported_formats:
   -
     mime: "application/vnd.openxmlformats-officedocument.wordprocessingml.document"

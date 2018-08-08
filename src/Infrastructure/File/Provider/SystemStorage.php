@@ -35,14 +35,10 @@ class SystemStorage implements IStorage
     {
         $results = array ();
 
-        $pathInfo = pathinfo($filename);
+        $pathInfo = $this->pathInfo($filename);
 
-        $finfo = finfo_open(FILEINFO_MIME_TYPE);
-        $file_mime_type = finfo_file($finfo, $filename);
-        finfo_close($finfo);
-
-        $results['fileType'] = $file_mime_type;
-        $results['fileSize'] = filesize($filename);
+        $results['fileType'] = $this->getFileMimeType($filename);
+        $results['fileSize'] = $this->filesize($filename);
         $results['fullPath'] = $filename;
         $results['extension'] = $pathInfo['extension'];
         $results['dirname'] = $pathInfo['dirname'];
@@ -65,5 +61,24 @@ class SystemStorage implements IStorage
     private function is_file_exists($filename): bool
     {
         return file_exists($filename);
+    }
+
+    private function filesize(string $filename): int
+    {
+        return filesize($filename);
+    }
+
+    private function getFileMimeType(string $filename): string
+    {
+        $finfo = finfo_open(FILEINFO_MIME_TYPE);
+        $file_mime_type = finfo_file($finfo, $filename);
+        finfo_close($finfo);
+
+        return $file_mime_type;
+    }
+
+    private function pathInfo(string $filename): array
+    {
+        return pathinfo($filename);
     }
 }

@@ -1,7 +1,7 @@
 <?php
 namespace PDT\Controller;
 
-use PDT\Configuration\Services;
+use PDT\Configuration\ServicesConfig;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Serializer\Serializer;
@@ -13,7 +13,7 @@ class MainController
     protected $serializer;
     protected $appConfig;
 
-    public function __construct(Services $appConfig)
+    public function __construct(ServicesConfig $appConfig)
     {
         $encoders = array(new JsonEncoder());
         $normalizers = array(new ObjectNormalizer());

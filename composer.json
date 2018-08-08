@@ -6,7 +6,7 @@
         "ext-ctype": "*",
         "ext-iconv": "*",
         "gufy/pdftohtml-php": "2.0.8",
-        "myclabs/php-enum": "^1.6",
+        "myclabs/php-enum": "1.6.2",
         "phpoffice/phpword": "0.15.0",
         "sensio/framework-extra-bundle": "5.2.0",
         "symfony/config": "3.4.14",

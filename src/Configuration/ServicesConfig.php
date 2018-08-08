@@ -4,7 +4,7 @@ namespace PDT\Configuration;
 use Symfony\Component\Config\Definition\Processor;
 use Symfony\Component\Yaml\Yaml;
 
-class Services
+class ServicesConfig
 {
     private $processedConfiguration;
 

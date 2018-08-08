@@ -1,8 +1,8 @@
 <?php
 namespace PDT\Controller;
 
-use PDT\Infrastructure\File\Adapter;
-use PDT\Infrastructure\File\Provider\SystemStorage;
+use PDT\Configuration\ServicesConfig;
+use PDT\Infrastructure\File\FileService;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -10,6 +10,14 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class ConvertController extends MainController
 {
+    private $fileService;
+
+    public function __construct(ServicesConfig $appConfig, FileService $fileService)
+    {
+        parent::__construct($appConfig);
+
+        $this->fileService = $fileService;
+    }
 
     /**
      * @param $docId integer
@@ -43,33 +51,9 @@ class ConvertController extends MainController
      */
     public function run_upload_file (): Response
     {
-        $result = $this->uploadFileToStorage($_FILES['document']);
+        $result['document'] = $this->fileService->uploadFileToStorage($_FILES['document'], $this->appConfig);
 
         return $this->createRequestEnvelopJSON($result);
     }
 
-
-    /*
-     * Private methods
-     */
-
-
-    private function uploadFileToStorage(array $file)
-    {
-        $LocalStorage = new SystemStorage();
-        $StorageAdapter = new Adapter($LocalStorage, $this->appConfig);
-
-        $data = array(
-            'filename' => $file['name'],
-            'fullpath' => dirname(__DIR__)
-                . $this->appConfig['directories']['documents']
-                . basename($file['name'])
-        );
-
-        $StorageAdapter->uploadFile($file['tmp_name'], $data['fullpath']);
-
-        $data['document'] = $document = $StorageAdapter->getFile($data['fullpath']);
-
-        return $data;
-    }
 }

@@ -1,5 +1,5 @@
 <?php
-namespace PDT\Tests\Domain;
+namespace PDT\Tests\Domain\Document;
 
 use PDT\Domain\Document\Document;
 use PDT\Domain\Document\DocumentType;
@@ -10,7 +10,7 @@ final class DocumentTest extends TestCase
 
     /**
      * @param int $docId
-     * @param string $docType
+     * @param DocumentType $docType
      * @param string $docContent
      * @param boolean $docIsParsed
      * @param string $filename
