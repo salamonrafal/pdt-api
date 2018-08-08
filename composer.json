@@ -18,7 +18,8 @@
         "symfony/lts": "3",
         "symfony/property-access": "3.4.14",
         "symfony/serializer": "3.4.14",
-        "symfony/yaml": "3.4.14"
+        "symfony/yaml": "3.4.14",
+        "phpspec/prophecy": "1.8.0"
     },
     "require-dev": {
         "symfony/dotenv": "3.4.14",

@@ -35,10 +35,10 @@ class SystemStorage implements IStorage
     {
         $results = array ();
 
-        $pathInfo = $this->pathInfo($filename);
+        $pathInfo = $this->_pathInfo($filename);
 
-        $results['fileType'] = $this->getFileMimeType($filename);
-        $results['fileSize'] = $this->filesize($filename);
+        $results['fileType'] = $this->_getFileMimeType($filename);
+        $results['fileSize'] = $this->_filesize($filename);
         $results['fullPath'] = $filename;
         $results['extension'] = $pathInfo['extension'];
         $results['dirname'] = $pathInfo['dirname'];
@@ -51,24 +51,24 @@ class SystemStorage implements IStorage
      * @param string $tempfile
      * @param string $target
      *
-     * @return mixed
+     * @return bool
      */
-    private function move_uploaded_file(string $tempfile, string $target): bool
+    public function move_uploaded_file(string $tempfile, string $target): bool
     {
         return move_uploaded_file($tempfile, $target);
     }
 
-    private function is_file_exists($filename): bool
+    protected function _is_file_exists($filename): bool
     {
         return file_exists($filename);
     }
 
-    private function filesize(string $filename): int
+    protected function _filesize(string $filename): int
     {
         return filesize($filename);
     }
 
-    private function getFileMimeType(string $filename): string
+    protected function _getFileMimeType(string $filename): string
     {
         $finfo = finfo_open(FILEINFO_MIME_TYPE);
         $file_mime_type = finfo_file($finfo, $filename);
@@ -77,7 +77,7 @@ class SystemStorage implements IStorage
         return $file_mime_type;
     }
 
-    private function pathInfo(string $filename): array
+    protected function _pathInfo(string $filename): array
     {
         return pathinfo($filename);
     }

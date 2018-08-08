@@ -29,17 +29,17 @@ class FileService
      * Private methods
      */
 
-    private function getClientStorage (): IStorage
+    protected function getClientStorage(): IStorage
     {
         return new SystemStorage();
     }
 
-    private function getAdapterStorage(IStorage $clientStorage, array $appConfig): Adapter
+    protected function getAdapterStorage(IStorage $clientStorage, array $appConfig): Adapter
     {
         return new Adapter($clientStorage, $appConfig);
     }
 
-    private function getFullPathFile(string $pathDir, string $filePath): string
+    protected function getFullPathFile(string $pathDir, string $filePath): string
     {
         return dirname(__DIR__)
             . $pathDir
