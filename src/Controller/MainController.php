@@ -13,13 +13,13 @@ class MainController
     protected $serializer;
     protected $appConfig;
 
-    public function __construct(ServicesConfig $appConfig)
+    public function __construct(ServicesConfig $serviceConfig)
     {
         $encoders = array(new JsonEncoder());
         $normalizers = array(new ObjectNormalizer());
 
         $this->serializer = new Serializer($normalizers, $encoders);
-        $this->appConfig = $appConfig->getConfig();
+        $this->appConfig = $serviceConfig->getConfig();
     }
 
     protected function createRequestEnvelopJSON ($payload): Response

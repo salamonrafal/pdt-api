@@ -3,7 +3,7 @@ namespace PDT\Tests\Infrastructure\File;
 
 use PDT\Domain\Document\Document;
 use PDT\Domain\Document\DocumentType;
-use PDT\Infrastructure\File\Adapter;
+use PDT\Infrastructure\File\StorageAdapter;
 use PDT\Infrastructure\File\Provider\SystemStorage;
 use PDT\Tests\Exposed\FileServiceExposed;
 use Symfony\Bundle\FrameworkBundle\Tests\TestCase;
@@ -34,7 +34,7 @@ final class FileServiceTest extends TestCase
             ->willReturn($mockTestData);
 
 
-       $mockAdapter = $this->getMockBuilder(Adapter::class)
+       $mockAdapter = $this->getMockBuilder(StorageAdapter::class)
             ->setConstructorArgs([
                 $mockClient,
                 $mockAppConfig
@@ -45,22 +45,16 @@ final class FileServiceTest extends TestCase
 
 
         $model = $this->getMockBuilder(FileServiceExposed::class)
+            ->setConstructorArgs([
+                $mockAdapter
+            ])
             ->setMethods(
                 [
-                    'getClientStorage',
-                    'getAdapterStorage',
                     'getFullPathFile'
                 ]
             )
             ->disableProxyingToOriginalMethods()
             ->getMock();
-
-        $model->method('getClientStorage')
-            ->willReturn($mockClient);
-
-        $model->method('getAdapterStorage')
-            ->with($mockClient, $mockAppConfig)
-            ->willReturn($mockAdapter);
 
         $model->method('getFullPathFile')
             ->willReturn($mockTestData['fullPath']);

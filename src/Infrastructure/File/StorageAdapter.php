@@ -4,7 +4,7 @@ namespace PDT\Infrastructure\File;
 
 use PDT\Domain\Document\Document;
 
-class Adapter
+class StorageAdapter
 {
     private $Storage;
     private $appConfig;
@@ -43,7 +43,6 @@ class Adapter
         $document->setFilename($fileInfo['fileName']);
         $document->setSize($fileInfo['fileSize']);
         $document->setFormatDocument($fileInfo['fileType'], $this->appConfig['supported_formats']);
-
 
         return $document;
     }
