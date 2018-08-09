@@ -35,7 +35,7 @@ class Adapter
         $this->Storage->delete();
     }
 
-    public function getFile(string $filename): Document
+    public function getFileInfo(string $filename): Document
     {
         $fileInfo = $this->Storage->getInfo($filename);
         $document = new Document();
