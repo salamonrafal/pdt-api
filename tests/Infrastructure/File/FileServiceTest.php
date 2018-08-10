@@ -6,9 +6,8 @@ use PDT\Domain\Document\DocumentType;
 use PDT\Infrastructure\File\StorageAdapter;
 use PDT\Infrastructure\File\Provider\SystemStorage;
 use PDT\Tests\Exposed\FileServiceExposed;
-use Symfony\Bundle\FrameworkBundle\Tests\TestCase;
 
-final class FileServiceTest extends TestCase
+final class FileServiceTest extends TestDataProvider
 {
     /**
      * @var array $file
@@ -66,51 +65,6 @@ final class FileServiceTest extends TestCase
         $this->assertTrue($result->isSupported());
         $this->assertEquals(DocumentType::PDF(), $result->getDocType());
         $this->assertEquals($mockTestData['fileName'], $result->getFilename());
-    }
-
-    private function getMockDataFileScope(): array
-    {
-        return [
-            'tmp_name' => '/var/temp/test_file.pdf',
-            'name' => 'test_file.pdf'
-        ];
-    }
-
-    private function getMockAppConfig(): array
-    {
-        return [
-            'directories' => [
-                'documents' => 'var/uploads/'
-            ],
-            'supported_formats' => [
-                [
-                    'mime' => 'application/pdf',
-                    'type' => 'PDF'
-                ]
-            ]
-
-        ];
-    }
-
-    private function getTestData(
-        string  $fileType = 'application/pdf',
-        int     $fileSize = 1234,
-        string  $fullPath = 'var/uploads/test_file.pdf',
-        string  $extension = 'pdf',
-        string  $dirname = 'var/uploads/',
-        string  $fileName = 'test_file.pdf'
-    ): array
-    {
-        $testData = array(
-            'fileType' => $fileType,
-            'fileSize' => $fileSize,
-            'fullPath' => $fullPath,
-            'extension' => $extension,
-            'dirname' => $dirname,
-            'fileName' => $fileName
-        );
-
-        return $testData;
     }
 
 }

@@ -6,8 +6,10 @@
         "ext-ctype": "*",
         "ext-iconv": "*",
         "gufy/pdftohtml-php": "2.0.8",
+        "mikey179/vfsStream": "^1.6",
         "myclabs/php-enum": "1.6.2",
         "phpoffice/phpword": "0.15.0",
+        "phpspec/prophecy": "1.8.0",
         "sensio/framework-extra-bundle": "5.2.0",
         "symfony/config": "3.4.14",
         "symfony/console": "3.4.14",
@@ -18,8 +20,7 @@
         "symfony/lts": "3",
         "symfony/property-access": "3.4.14",
         "symfony/serializer": "3.4.14",
-        "symfony/yaml": "3.4.14",
-        "phpspec/prophecy": "1.8.0"
+        "symfony/yaml": "3.4.14"
     },
     "require-dev": {
         "symfony/dotenv": "3.4.14",
