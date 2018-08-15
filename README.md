@@ -1,5 +1,8 @@
 # Parsing Document Tool API
 
+[![Build Status](https://travis-ci.org/salamonrafal/pdt-api.svg?branch=production)](https://travis-ci.org/salamonrafal/pdt-api) [![Coverage Status](https://coveralls.io/repos/github/salamonrafal/pdt-api/badge.svg?branch=production)](https://coveralls.io/github/salamonrafal/pdt-api?branch=production) 
+
+
 ## Index
 * [Run server](#run-server)
 * [Unit testing](#unit-testing)
