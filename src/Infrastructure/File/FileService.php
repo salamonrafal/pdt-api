@@ -25,6 +25,13 @@ class FileService
         return $this->storageAdapter->getFileInfo($fullPath);
     }
 
+    public function getFileInfo(string $filename, array $appConfig): Document
+    {
+        $fullPath = $this->getFullPathFile($appConfig['directories']['documents'], $filename);
+
+        return $this->storageAdapter->getFileInfo($fullPath);
+    }
+
     /*
      * Private methods
      */

@@ -10,13 +10,10 @@ class ServicesConfig
 
     public function __construct()
     {
-        $config = Yaml::parse(
-            $this->getConfigContent(__DIR__ . '/application.yaml')
-        );
-
         $configs = array();
 
-        array_push($configs, $config);
+        array_push($configs, $this->getConfiguration());
+        array_push($configs, $this->getOSconfiguration());
 
         $processor = new Processor();
         $applicationConfiguration = new ApplicationConfiguration();
@@ -31,5 +28,28 @@ class ServicesConfig
     private function getConfigContent (string $filename): string
     {
         return file_get_contents($filename);
+    }
+
+    private function getConfiguration()
+    {
+        $config = Yaml::parse(
+            $this->getConfigContent(__DIR__ . '/application.yaml')
+        );
+
+        return $config;
+    }
+
+    private function getOSconfiguration()
+    {
+        switch (PHP_OS)
+        {
+            case 'WINNT':
+                return Yaml::parse(
+                    $this->getConfigContent(__DIR__ . '/application_win.yaml')
+                );
+            break;
+            default:
+                return [];
+        }
     }
 }
