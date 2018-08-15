@@ -11,3 +11,5 @@ before_script: true
 script:
   - php bin/phpunit
 
+after_success:
+  - travis_retry php vendor/bin/php-coveralls -v

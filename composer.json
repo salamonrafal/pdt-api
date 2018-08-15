@@ -8,6 +8,7 @@
         "gufy/pdftohtml-php": "2.0.8",
         "mikey179/vfsStream": "^1.6",
         "myclabs/php-enum": "1.6.2",
+        "php-coveralls/php-coveralls": "^2.1",
         "phpoffice/phpword": "0.15.0",
         "phpspec/prophecy": "1.8.0",
         "sensio/framework-extra-bundle": "5.2.0",
