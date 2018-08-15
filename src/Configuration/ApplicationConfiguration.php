@@ -17,6 +17,7 @@ class ApplicationConfiguration implements ConfigurationInterface
                 ->arrayNode('directories')
                     ->children()
                         ->scalarNode('documents')->end()
+                        ->scalarNode('cache_upload_pdf')->end()
                     ->end()
                 ->end()
 
@@ -26,6 +27,13 @@ class ApplicationConfiguration implements ConfigurationInterface
                         ->scalarNode('mime')->end()
                         ->scalarNode('type')->end()
                         ->end()
+                    ->end()
+                ->end()
+
+                ->arrayNode('bin_location')
+                    ->children()
+                        ->scalarNode('pdftohtml_bin')->end()
+                        ->scalarNode('pdfinfo_bin')->end()
                     ->end()
                 ->end()
 

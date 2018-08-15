@@ -43,6 +43,7 @@ class StorageAdapter
         $document->setFilename($fileInfo['fileName']);
         $document->setSize($fileInfo['fileSize']);
         $document->setFormatDocument($fileInfo['fileType'], $this->appConfig['supported_formats']);
+        $document->setFullPath($fileInfo['fullPath']);
 
         return $document;
     }

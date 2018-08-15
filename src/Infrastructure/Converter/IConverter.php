@@ -3,5 +3,5 @@ namespace PDT\Infrastructure\Converter;
 
 interface IConverter
 {
-    public function convertToHtml();
+    public function convertToHtml(): array;
 }

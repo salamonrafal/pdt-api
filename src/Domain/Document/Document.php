@@ -35,6 +35,11 @@ class Document
     private $isSupported;
 
     /**
+     * @var string
+     */
+    private $fullPath;
+
+    /**
      * @var int
      */
     private $size;
@@ -162,6 +167,23 @@ class Document
     {
         $this->size = $size;
     }
+
+    /**
+     * @return string
+     */
+    public function getFullPath(): string
+    {
+        return $this->fullPath;
+    }
+
+    /**
+     * @param string $fullPath
+     */
+    public function setFullPath(string $fullPath): void
+    {
+        $this->fullPath = $fullPath;
+    }
+
 
     /**
      * @param $mimeType
