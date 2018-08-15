@@ -9,6 +9,7 @@ before_install: true
 before_script: true
 
 script:
+  - mkdir -p build/logs
   - php bin/phpunit
 
 after_success:
