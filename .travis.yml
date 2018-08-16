@@ -1,16 +1,21 @@
 language: php
 php:
   - '7.1'
+
+cache:
+  apt: true
+  directories:
+    - $HOME/.composer/cache
+
 install:
-  - composer install
+  - travis_retry composer self-update
+  - travis_retry composer install
 
-before_install: true
-
-before_script: true
+before_script:
+  - mkdir -p build/logs
 
 script:
-  - mkdir -p build/logs
   - php bin/phpunit
 
 after_success:
-  - travis_retry php vendor/bin/php-coveralls -v
+  - php vendor/bin/php-coveralls -v
