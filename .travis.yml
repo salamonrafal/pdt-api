@@ -2,11 +2,14 @@ language: php
 php:
   - '7.1'
 
+cache:
+  apt: true
+  directories:
+    - $HOME/.composer/cache
+
 install:
   - travis_retry composer self-update
   - travis_retry composer install
-
-before_install: true
 
 before_script:
   - mkdir -p build/logs
