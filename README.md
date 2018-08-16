@@ -1,6 +1,6 @@
 # Parsing Document Tool API
 
-[![Build Status](https://travis-ci.org/salamonrafal/pdt-api.svg?branch=production)](https://travis-ci.org/salamonrafal/pdt-api) [![Coverage Status](https://coveralls.io/repos/github/salamonrafal/pdt-api/badge.svg?branch=production)](https://coveralls.io/github/salamonrafal/pdt-api?branch=production) 
+[![Build Status](https://travis-ci.org/salamonrafal/pdt-api.svg?branch=production)](https://travis-ci.org/salamonrafal/pdt-api) [![Coverage Status](https://coveralls.io/repos/github/salamonrafal/pdt-api/badge.svg?branch=production)](https://coveralls.io/github/salamonrafal/pdt-api?branch=production) [![Minimum PHP Version](https://img.shields.io/badge/php-%3E%3D%207.1-8892BF.svg?style=flat-square)](https://php.net/)  
 
 
 ## Index
