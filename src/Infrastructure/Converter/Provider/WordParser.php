@@ -2,6 +2,7 @@
 namespace PDT\Infrastructure\Converter\Provider;
 
 use PDT\Infrastructure\Converter\IConverter;
+use \PhpOffice\PhpWord\IOFactory;
 
 class WordParser implements IConverter
 {
@@ -23,6 +24,14 @@ class WordParser implements IConverter
 
     public function convertToHtml(): array
     {
-        // TODO: Implement convertToHtml() method.
+        $result = [
+            'content' => ''
+        ];
+
+        // Creating the new document...
+        $phpWord = IOFactory::load($this->filename, 'MsDoc');
+        $xmlWriter = IOFactory::createWriter($phpWord, 'RTF');
+        $xmlWriter->save("{$this->filename}.docx");
+        return $result;
     }
 }
